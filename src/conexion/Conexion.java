@@ -34,7 +34,7 @@
 //    }
 
 package conexion;
-//Prueba de que funciona el git
+//Prueba de que funciona el git 2
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
