@@ -3,8 +3,12 @@ package controlador;
 import datos.Usuario;
 import dao.UsuarioDAO;
 import dao.impl.UsuarioDAOImpl;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import conexion.Conexion;
 
 public class Ctrl_Usuario {
 
@@ -59,17 +63,20 @@ public class Ctrl_Usuario {
         }
     }
 
-    public boolean existeUsuario(String usuario) {
-        try {
-            return usuarioDAO.existeUsuario(usuario);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al verificar usuario: " + e.getMessage());
-            e.printStackTrace();
-            return false;
-        }
-    }
+    public boolean existeUsuario(String nombreUsuario) {
+    String sql = "SELECT COUNT(*) FROM usuario WHERE usuario = ?";
+    try (Connection conexion = Conexion.conectar();
+         PreparedStatement stmt = conexion.prepareStatement(sql)) {
 
-    public boolean Crear(Usuario usu) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        stmt.setString(1, nombreUsuario);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getInt(1) > 0;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+        return false;
+}
 }
