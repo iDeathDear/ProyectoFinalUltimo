@@ -68,4 +68,8 @@ public class Ctrl_Usuario {
             return false;
         }
     }
+
+    public boolean Crear(Usuario usu) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

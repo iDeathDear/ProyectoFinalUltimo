@@ -73,7 +73,7 @@ public class Conexion {
         
         return null;
     }
-    
+    //HOLA DIEGO
     // Método para cerrar conexión (buena práctica)
     public static void cerrar(Connection cn) {
         if (cn != null) {
