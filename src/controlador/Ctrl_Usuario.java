@@ -1,123 +1,71 @@
 package controlador;
+
 import datos.Usuario;
-import conexion.Conexion;
-import java.sql.*;
+import dao.UsuarioDAO;
+import dao.impl.UsuarioDAOImpl;
+
 import javax.swing.JOptionPane;
 
 public class Ctrl_Usuario {
-    
-    Connection cn;
-    PreparedStatement ps;
+
+    private final UsuarioDAO usuarioDAO;
+
+    public Ctrl_Usuario() {
+        this.usuarioDAO = new UsuarioDAOImpl(); // Usa el patrón DAO
+    }
 
     public boolean loginUser(Usuario objeto) {
-
-        boolean respuesta = false;
-
-        Connection cn = Conexion.conectar();
-        String sql = "SELECT usuario, clave FROM usuario WHERE usuario = '" + objeto.getUsuario() + "' AND clave = '" + objeto.getClave() + "' ";
-        Statement st;
         try {
-            st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                respuesta = true;
+            return usuarioDAO.loginUser(objeto);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean crear(Usuario objeto) {
+        try {
+            if (!usuarioDAO.existeUsuario(objeto.getUsuario())) {
+                return usuarioDAO.crear(objeto);
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario ya existe.");
+                return false;
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al iniciar sesion");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al registrar usuario: " + e.getMessage());
+            e.printStackTrace();
+            return false;
         }
-        return respuesta;
     }
-    
-    //Metodo para crear nuevos usuarios 
-    public boolean Crear(Usuario objeto) {
-        boolean respuesta = false;
-        String sql = "INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?)";
 
-        try {
-            cn = Conexion.conectar();
-            ps = cn.prepareStatement(sql);
-            
-            ps.setInt(1, 0);
-            ps.setString(2,objeto.getApellido());
-            ps.setString(3,objeto.getNombre());
-            ps.setString(4,objeto.getDni());
-            ps.setString(5,objeto.getCelular());
-            ps.setString(6,objeto.getDireccion());
-            ps.setString(7,objeto.getCategoria());
-            ps.setString(8,objeto.getUsuario());
-            ps.setString(9,objeto.getClave());
-                       
-            if (ps.executeUpdate()>0) {
-                respuesta = true;
-            }
-            cn.close();
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al registrar usuario " + e);
-        }
-        return respuesta;
-    }
-    
-    //Metodo para verificar si el usuario ya existe
-    public boolean existeUsuario(String usuario){
-        boolean respuesta = false;
-        
-        String sql = "SELECT usuario FROM usuario WHERE usuario = '" + usuario + "'";
-        Statement st;
-        
-        try {
-            cn = Conexion.conectar();
-            st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                respuesta = true;
-            }            
-        } catch (SQLException e) {
-            System.out.println("Error al consultar usuario "+ e);
-        }
-        return respuesta;       
-    }
-    
     public boolean actualizar(Usuario objeto, int idUsuario) {
-        boolean respuesta = false;
-        cn = Conexion.conectar();
-        String sql = "UPDATE usuario SET apellidos=?,nombres=?,celular=?,categoria=?,usuario=?,clave=? WHERE idUsuario ='" + idUsuario + "'";
-        
         try {
-            ps = cn.prepareStatement(sql);
-            
-            ps.setString(1, objeto.getApellido());
-            ps.setString(2, objeto.getNombre());
-            ps.setString(3, objeto.getCelular());
-            ps.setString(4, objeto.getCategoria());
-            ps.setString(5, objeto.getUsuario());
-            ps.setString(6, objeto.getClave());
-
-            if (ps.executeUpdate() > 0) {
-                respuesta = true;
-            }
-            cn.close();           
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar usuario " + e);
+            return usuarioDAO.actualizar(objeto, idUsuario);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al actualizar usuario: " + e.getMessage());
+            e.printStackTrace();
+            return false;
         }
-        return respuesta;
     }
-    
-    public boolean eliminar(int idUsuario) {
-        boolean respuesta = false;
-        cn = Conexion.conectar();
-        String sql = "DELETE FROM usuario WHERE idUsuario ='" + idUsuario + "'";
-        try {
-            ps = cn.prepareStatement(sql);            
-            ps.executeUpdate();
 
-            if (ps.executeUpdate() > 0) {
-                respuesta = true;
-            }
-            cn.close();           
-        } catch (SQLException e) {
-            System.out.println("Error al eliminar usuario " + e);
+    public boolean eliminar(int idUsuario) {
+        try {
+            return usuarioDAO.eliminar(idUsuario);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar usuario: " + e.getMessage());
+            e.printStackTrace();
+            return false;
         }
-        return respuesta;
-    }   
+    }
+
+    public boolean existeUsuario(String usuario) {
+        try {
+            return usuarioDAO.existeUsuario(usuario);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al verificar usuario: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
