@@ -1,14 +1,12 @@
 package vista;
 import controlador.Ctrl_Usuario;
 import javax.swing.JOptionPane;
-
 import datos.Usuario;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import javax.swing.UIManager;
 
 
 public class Login extends javax.swing.JFrame {
-
-    
-
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -166,35 +164,14 @@ public class Login extends javax.swing.JFrame {
         this.Login();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
-    public static void main(String args[]) {
-
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    public static void main(String[] args) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatArcDarkOrangeIJTheme());
+        } catch (Exception ex) {
+            System.err.println("No se pudo aplicar el tema Arc Dark - Orange");
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Login().setVisible(true);
-        });
+        // ABRIR VISTA LOGIN
+        new Login().setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,7 +195,6 @@ public class Login extends javax.swing.JFrame {
    if (!txtUsuario.getText().isEmpty() && txtClave.getPassword().length > 0) {
         Ctrl_Usuario cu = new Ctrl_Usuario();
         Usuario us = new Usuario();
-        
         // Obtener usuario y categoría (no sensibles, pueden ser String)
         us.setUsuario(txtUsuario.getText().trim());
         us.setCategoria(cboxCategoria.getSelectedItem().toString());

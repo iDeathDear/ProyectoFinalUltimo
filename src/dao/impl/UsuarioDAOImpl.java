@@ -86,6 +86,64 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         return lista;
     }
     
+@Override
+public List<Usuario> buscarFiltrado(Usuario filtro) {
+    List<Usuario> lista = new ArrayList<>();
+    String sql = "SELECT * FROM usuario WHERE 1=1";
+
+    List<String> condiciones = new ArrayList<>();
+    List<Object> valores = new ArrayList<>();
+
+    if (filtro.getApellido() != null && !filtro.getApellido().isEmpty()) {
+        condiciones.add("apellidos LIKE ?");
+        valores.add("%" + filtro.getApellido() + "%");
+    }
+    if (filtro.getNombre() != null && !filtro.getNombre().isEmpty()) {
+        condiciones.add("nombres LIKE ?");
+        valores.add("%" + filtro.getNombre() + "%");
+    }
+    if (filtro.getCelular() != null && !filtro.getCelular().isEmpty()) {
+        condiciones.add("celular LIKE ?");
+        valores.add("%" + filtro.getCelular() + "%");
+    }
+    if (filtro.getCategoria() != null && !filtro.getCategoria().equals("Seleccione")) {
+        condiciones.add("categoria = ?");
+        valores.add(filtro.getCategoria());
+    }
+    if (filtro.getUsuario() != null && !filtro.getUsuario().isEmpty()) {
+        condiciones.add("usuario LIKE ?");
+        valores.add("%" + filtro.getUsuario() + "%");
+    }
+
+    for (String condicion : condiciones) {
+        sql += " AND " + condicion;
+    }
+
+    try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        for (int i = 0; i < valores.size(); i++) {
+            ps.setObject(i + 1, valores.get(i));
+        }
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            u.setIdUsuario(rs.getInt("idUsuario"));
+            u.setApellido(rs.getString("apellidos"));
+            u.setNombre(rs.getString("nombres"));
+            u.setCelular(rs.getString("celular"));
+            u.setCategoria(rs.getString("categoria"));
+            u.setUsuario(rs.getString("usuario"));
+            u.setClave(rs.getString("clave"));
+            lista.add(u);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return lista;
+}
+
+
     @Override
 public boolean eliminar(int idUsuario) {
     boolean eliminado = false;
@@ -162,14 +220,37 @@ public boolean loginUser(Usuario usuario) {
 
 
     @Override
-    public boolean crear(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public boolean crear(Usuario usuario) {
+    String sql = "INSERT INTO usuario (apellidos, nombres, dni, celular, direccion, categoria, usuario, clave) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        ps.setString(1, usuario.getApellido());
+        ps.setString(2, usuario.getNombre());
+        ps.setString(3, usuario.getDni());
+        ps.setString(4, usuario.getCelular());
+        ps.setString(5, usuario.getDireccion());
+        ps.setString(6, usuario.getCategoria());
+        ps.setString(7, usuario.getUsuario());
+        ps.setString(8, usuario.getClave());
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+    return false;
+}
+
 
     @Override
-    public boolean existeUsuario(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public boolean existeUsuario(String nombreUsuario) {
+    String sql = "SELECT COUNT(*) FROM usuario WHERE usuario = ?";
+    try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        ps.setString(1, nombreUsuario);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1) > 0;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
-    
-    
+    return false;
+}    
 }

@@ -239,7 +239,7 @@ public class Registrar extends javax.swing.JDialog {
                 usu.setCategoria(cboxCategoria.getSelectedItem().toString().trim());
                 usu.setUsuario(txtUsuario.getText().trim());
                 usu.setClave(txtPassword.getText().trim());
-                if (ct.Crear(usu)) {
+                if (ct.crear(usu)) {
                     JOptionPane.showMessageDialog(null, "Usuario registrado");
                     this.Limpiar();
                 } else {

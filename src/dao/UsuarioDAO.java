@@ -11,4 +11,5 @@ public interface UsuarioDAO {
     boolean eliminar(int idUsuario);
     Usuario obtenerPorUsuario(String usuario); // para casos más detallados
     List<Usuario> listarTodos(); // si usas una tabla en JFrame
+    List<Usuario> buscarFiltrado(Usuario filtro);
 }

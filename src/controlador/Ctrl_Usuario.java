@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import conexion.Conexion;
+import java.util.List;
 
 public class Ctrl_Usuario {
 
@@ -52,6 +53,11 @@ public class Ctrl_Usuario {
             return false;
         }
     }
+    
+    public List<Usuario> buscarFiltrado(Usuario filtro) {
+    return usuarioDAO.buscarFiltrado(filtro);
+    }
+
 
     public boolean eliminar(int idUsuario) {
         try {
