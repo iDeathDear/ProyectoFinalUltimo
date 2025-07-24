@@ -69,14 +69,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getInt("idUsuario"));
-                u.setApellido(rs.getString("apellido"));
-                u.setNombre(rs.getString("nombre"));
+                u.setNombre(rs.getString("nombres"));
+                u.setApellido(rs.getString("apellidos"));
                 u.setDni(rs.getString("dni"));
-                u.setCelular(rs.getString("celular"));
-                u.setDireccion(rs.getString("direccion"));
-                u.setCategoria(rs.getString("categoria"));
                 u.setUsuario(rs.getString("usuario"));
                 u.setClave(rs.getString("clave"));
+                u.setCategoria(rs.getString("categoria"));
+                u.setCelular(rs.getString("celular"));
+                u.setDireccion(rs.getString("direccion"));
                 lista.add(u);
             }
 
@@ -93,6 +93,16 @@ public List<Usuario> buscarFiltrado(Usuario filtro) {
 
     List<String> condiciones = new ArrayList<>();
     List<Object> valores = new ArrayList<>();
+    
+    if (filtro.getDni() != null && !filtro.getDni().isEmpty()) {
+    condiciones.add("dni LIKE ?");
+    valores.add("%" + filtro.getDni() + "%");
+}
+
+    if (filtro.getDireccion() != null && !filtro.getDireccion().isEmpty()) {
+    condiciones.add("direccion LIKE ?");
+    valores.add("%" + filtro.getDireccion() + "%");
+}
 
     if (filtro.getApellido() != null && !filtro.getApellido().isEmpty()) {
         condiciones.add("apellidos LIKE ?");
@@ -126,16 +136,19 @@ public List<Usuario> buscarFiltrado(Usuario filtro) {
 
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            Usuario u = new Usuario();
-            u.setIdUsuario(rs.getInt("idUsuario"));
-            u.setApellido(rs.getString("apellidos"));
-            u.setNombre(rs.getString("nombres"));
-            u.setCelular(rs.getString("celular"));
-            u.setCategoria(rs.getString("categoria"));
-            u.setUsuario(rs.getString("usuario"));
-            u.setClave(rs.getString("clave"));
-            lista.add(u);
-        }
+    Usuario u = new Usuario();
+    u.setIdUsuario(rs.getInt("idUsuario"));
+    u.setNombre(rs.getString("nombres"));
+    u.setApellido(rs.getString("apellidos"));
+    u.setDni(rs.getString("dni"));     
+    u.setUsuario(rs.getString("usuario"));
+    u.setClave(rs.getString("clave"));
+    u.setCategoria(rs.getString("categoria"));
+    u.setCelular(rs.getString("celular"));
+    u.setDireccion(rs.getString("direccion")); 
+    lista.add(u);
+}
+
     } catch (SQLException e) {
         e.printStackTrace();
     }

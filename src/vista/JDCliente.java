@@ -586,7 +586,7 @@ public class JDCliente extends javax.swing.JDialog {
             model.addColumn("ID");
             model.addColumn("Apellido");
             model.addColumn("Nombre");
-            model.addColumn("DNI");
+            model.addColumn("Dni");
             model.addColumn("Celular");
             model.addColumn("Dirección");
 

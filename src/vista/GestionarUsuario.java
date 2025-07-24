@@ -68,65 +68,95 @@ public class GestionarUsuario extends javax.swing.JDialog {
         btnLimpiar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnCrear = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestionar Usuarios");
-        setPreferredSize(new java.awt.Dimension(630, 440));
+        setPreferredSize(new java.awt.Dimension(560, 385));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel3.setText("Apellido");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 81, -1, -1));
-        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 81, 136, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        txtApellido.setPreferredSize(new java.awt.Dimension(64, 25));
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 140, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel4.setText("Nombre");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 136, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
+
+        txtNombre.setPreferredSize(new java.awt.Dimension(64, 25));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel5.setText("Celular");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, -1, 21));
-        jPanel2.add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 127, 136, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 21));
+
+        txtCelular.setPreferredSize(new java.awt.Dimension(64, 25));
+        jPanel2.add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jLabel6.setText("Usuario");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 81, -1, -1));
-        jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 81, 128, -1));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel6.setText("DNI");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
+
+        txtUsuario.setPreferredSize(new java.awt.Dimension(64, 25));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 140, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel7.setText("Clave");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 127, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
+        txtClave.setPreferredSize(new java.awt.Dimension(140, 25));
         txtClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtClaveActionPerformed(evt);
             }
         });
-        jPanel2.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 127, 128, -1));
+        jPanel2.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         cboxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Vendedor", "Administrador" }));
-        jPanel2.add(cboxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 128, -1));
+        cboxCategoria.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel2.add(cboxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel1.setText("Categoría");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        jLabel1.setText("Direccion");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jtbUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Apellido", "Nombre", "Celular", "Categoría", "Usuario", "Clave"
+
             }
         ));
         jtbUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,7 +166,7 @@ public class GestionarUsuario extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jtbUsuario);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 590, 230));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 530, 210));
 
         btnBuscar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnBuscar.setText("Buscar");
@@ -146,7 +176,7 @@ public class GestionarUsuario extends javax.swing.JDialog {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 100, -1));
+        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 100, -1));
 
         btnEliminar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -158,8 +188,9 @@ public class GestionarUsuario extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 121, 100, -1));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 100, -1));
 
+        btnLimpiar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setPreferredSize(new java.awt.Dimension(90, 25));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +198,7 @@ public class GestionarUsuario extends javax.swing.JDialog {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 67, 100, -1));
+        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 100, -1));
 
         btnActualizar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -177,13 +208,44 @@ public class GestionarUsuario extends javax.swing.JDialog {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 94, 100, -1));
+        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("ADMINISTRAR USUARIOS");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
+        btnCrear.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnCrear.setText("Crear");
+        btnCrear.setPreferredSize(new java.awt.Dimension(90, 25));
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 100, -1));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel8.setText("Categoría");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
+
+        txtDireccion.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel9.setText("Usuario");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+
+        txtDni.setPreferredSize(new java.awt.Dimension(140, 25));
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDniActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,12 +254,14 @@ public class GestionarUsuario extends javax.swing.JDialog {
         int fila = jtbUsuario.getSelectedRow();
     if (fila != -1) {
         idUsuario = Integer.parseInt(jtbUsuario.getValueAt(fila, 0).toString());
-        txtApellido.setText(jtbUsuario.getValueAt(fila, 1).toString());
-        txtNombre.setText(jtbUsuario.getValueAt(fila, 2).toString());
-        txtCelular.setText(jtbUsuario.getValueAt(fila, 3).toString());
-        cboxCategoria.setSelectedItem(jtbUsuario.getValueAt(fila, 4).toString());
-        txtUsuario.setText(jtbUsuario.getValueAt(fila, 5).toString());
-        txtClave.setText(jtbUsuario.getValueAt(fila, 6).toString());
+        txtNombre.setText(jtbUsuario.getValueAt(fila, 1).toString());
+        txtApellido.setText(jtbUsuario.getValueAt(fila, 2).toString());
+        txtDni.setText(jtbUsuario.getValueAt(fila, 3).toString());
+        txtUsuario.setText(jtbUsuario.getValueAt(fila, 4).toString());
+        txtClave.setText(jtbUsuario.getValueAt(fila, 5).toString());
+        cboxCategoria.setSelectedItem(jtbUsuario.getValueAt(fila, 6).toString());
+        txtCelular.setText(jtbUsuario.getValueAt(fila, 7).toString());
+        txtDireccion.setText(jtbUsuario.getValueAt(fila, 8).toString());
     }
     }//GEN-LAST:event_jtbUsuarioMouseClicked
 
@@ -207,6 +271,8 @@ public class GestionarUsuario extends javax.swing.JDialog {
         txtCelular.setText("");
         txtUsuario.setText("");
         txtClave.setText("");
+        txtDni.setText("");
+        txtDireccion.setText("");
         cboxCategoria.setSelectedIndex(0); // Asegúrate de que el primer ítem sea "Seleccione"
         txtNombre.requestFocus(); // Para que el cursor vuelva a empezar allí
         CargarTUsuarios();    
@@ -226,6 +292,8 @@ public class GestionarUsuario extends javax.swing.JDialog {
                 usu.setCategoria(cboxCategoria.getSelectedItem().toString().trim());
                 usu.setUsuario(txtUsuario.getText().trim());
                 usu.setClave(txtClave.getText().trim());
+                usu.setDireccion(txtDireccion.getText().trim());
+
                 if (ct.actualizar(usu, idUsuario)) {
                     JOptionPane.showMessageDialog(null, "Usuario actualizado");
                     this.Limpiar();
@@ -266,6 +334,61 @@ public class GestionarUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClaveActionPerformed
 
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+    private boolean validarCampos() {
+    if (txtNombre.getText().trim().isEmpty()
+        || txtApellido.getText().trim().isEmpty()
+        || txtCelular.getText().trim().isEmpty()
+        || txtUsuario.getText().trim().isEmpty()
+        || txtClave.getText().trim().isEmpty()
+        || cboxCategoria.getSelectedIndex() == 0
+        || txtDni.getText().trim().isEmpty()
+        || txtDireccion.getText().trim().isEmpty()) {
+
+        JOptionPane.showMessageDialog(null, "Complete todos los campos correctamente");
+        return false;
+    }
+
+    return true;
+}
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        if (validarCampos()) {
+        Usuario nuevo = new Usuario();
+        nuevo.setNombre(txtNombre.getText());
+        nuevo.setApellido(txtApellido.getText());
+        nuevo.setDni(txtDni.getText());
+        nuevo.setUsuario(txtUsuario.getText());
+        nuevo.setClave(txtClave.getText());
+        nuevo.setCategoria(cboxCategoria.getSelectedItem().toString());
+        nuevo.setCelular(txtCelular.getText());
+        nuevo.setDireccion(txtDireccion.getText());
+        
+
+        if (ct.crear(nuevo)) {
+            JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+            this.Limpiar();
+            this.CargarTUsuarios();
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al crear usuario");
+        }
+    }
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -285,6 +408,7 @@ public class GestionarUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cboxCategoria;
@@ -295,47 +419,66 @@ public class GestionarUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jtbUsuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtClave;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
     private void CargarTUsuarios() {
-    DefaultTableModel model = new DefaultTableModel();
+    DefaultTableModel model = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // Evita que las celdas se editen
+        }
+    };
+
     model.addColumn("ID");
-    model.addColumn("Apellido");
     model.addColumn("Nombre");
-    model.addColumn("Celular");
-    model.addColumn("Categoría");
+    model.addColumn("Apellido");
+    model.addColumn("Dni");
     model.addColumn("Usuario");
     model.addColumn("Clave");
+    model.addColumn("Categoría");
+    model.addColumn("Celular");
+    model.addColumn("Dirección");
 
     Connection cn = Conexion.conectar();
-    String sql = "SELECT idUsuario, apellidos, nombres, celular, categoria, usuario, clave FROM usuario";
+    String sql = "SELECT idUsuario, nombres, apellidos, dni, usuario, clave, categoria, celular, direccion FROM usuario";
 
     try {
         Statement st = cn.createStatement();
         ResultSet rs = st.executeQuery(sql);
 
         while (rs.next()) {
-            Object[] fila = new Object[7];
-            for (int i = 0; i < 7; i++) {
+            Object[] fila = new Object[9];
+            for (int i = 0; i < 9; i++) {
                 fila[i] = rs.getObject(i + 1);
             }
             model.addRow(fila);
         }
 
-        jtbUsuario.setModel(model); // importante: no se reemplaza la tabla
+        jtbUsuario.setModel(model);
+
+        // 👇 Esto bloquea la edición y selecciona solo filas
+        jtbUsuario.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtbUsuario.setRowSelectionAllowed(true);
+        jtbUsuario.setColumnSelectionAllowed(false);
+
         cn.close();
     } catch (SQLException e) {
         System.out.println("Error al llenar la tabla usuario: " + e);
     }
 }
+
 
 
     private void EnviarDatosUsuarioSelec(int idUsuario) {
@@ -360,47 +503,69 @@ public class GestionarUsuario extends javax.swing.JDialog {
         }
     }
     
-    private void buscarYMostrarUsuarios() {
+   private void buscarYMostrarUsuarios() {
     Usuario filtro = new Usuario();
-    filtro.setApellido(txtApellido.getText().trim());
     filtro.setNombre(txtNombre.getText().trim());
-    filtro.setCelular(txtCelular.getText().trim());
-    filtro.setCategoria(cboxCategoria.getSelectedItem().toString());
+    filtro.setApellido(txtApellido.getText().trim());
+    filtro.setDni(txtDni.getText().trim());
     filtro.setUsuario(txtUsuario.getText().trim());
+    filtro.setClave(txtClave.getText().trim());
+    filtro.setCategoria(cboxCategoria.getSelectedItem().toString());
+    filtro.setCelular(txtCelular.getText().trim());
+          
+    filtro.setDireccion(txtDireccion.getText().trim());
 
     List<Usuario> lista = ct.buscarFiltrado(filtro);
 
-    DefaultTableModel model = new DefaultTableModel();
+    DefaultTableModel model = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // evita que se puedan editar las celdas
+        }
+    };
+
     model.addColumn("ID");
-    model.addColumn("Apellido");
     model.addColumn("Nombre");
-    model.addColumn("Celular");
-    model.addColumn("Categoría");
+    model.addColumn("Apellido");
+    model.addColumn("Dni");
     model.addColumn("Usuario");
     model.addColumn("Clave");
+    model.addColumn("Categoría");
+    model.addColumn("Celular");
+    model.addColumn("Dirección");
 
     for (Usuario u : lista) {
-        Object[] fila = new Object[]{
+        Object[] fila = new Object[] {
             u.getIdUsuario(),
-            u.getApellido(),
             u.getNombre(),
-            u.getCelular(),
-            u.getCategoria(),
+            u.getApellido(),
+            u.getDni(),
             u.getUsuario(),
-            u.getClave()
+            u.getClave(),
+            u.getCategoria(),
+            u.getCelular(),
+            u.getDireccion()
         };
         model.addRow(fila);
     }
 
-    jtbUsuario.setModel(model); // usamos la tabla existente    // reaplicamos el listener
+    jtbUsuario.setModel(model);
+
+    // 👇 Esto asegura que solo se pueda seleccionar una fila y no columnas
+    jtbUsuario.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jtbUsuario.setRowSelectionAllowed(true);
+    jtbUsuario.setColumnSelectionAllowed(false);
 }
+
     
     private void Limpiar() {
         txtApellido.setText("");
         txtNombre.setText("");
         txtCelular.setText("");
-        cboxCategoria.setSelectedItem("Seleccione");
         txtUsuario.setText("");
         txtClave.setText("");
+        txtDireccion.setText("");
+        txtDni.setText("");
+        cboxCategoria.setSelectedIndex(0);
     }
 }

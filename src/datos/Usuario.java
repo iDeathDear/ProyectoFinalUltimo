@@ -11,6 +11,7 @@ public class Usuario {
     private String categoria;
     private String usuario;
     private String clave;
+    
 
     public Usuario() {
     }

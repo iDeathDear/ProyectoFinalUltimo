@@ -22,7 +22,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnInicio = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnUsuario = new javax.swing.JMenu();
         btnCrearusuario = new javax.swing.JMenuItem();
@@ -68,10 +67,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cel.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 330, 140));
-
-        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inicio.png"))); // NOI18N
-        btnInicio.setText("Inicio");
-        jPanel2.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 490));
 
@@ -263,7 +258,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu btnCliente;
     private javax.swing.JMenu btnConfiguracion;
     private javax.swing.JMenuItem btnCrearusuario;
-    private javax.swing.JButton btnInicio;
     private javax.swing.JMenu btnProducto;
     private javax.swing.JMenu btnStock;
     private javax.swing.JMenu btnUsuario;
@@ -290,7 +284,6 @@ public class Menu extends javax.swing.JFrame {
     public void Privilegios(String categoria) {
     
         if ("Administrador".equals(categoria)) {
-            btnInicio.setEnabled(true);
             btnUsuario.setEnabled(true);
             btnProducto.setEnabled(true);
             btnCliente.setEnabled(true);
@@ -298,7 +291,6 @@ public class Menu extends javax.swing.JFrame {
             btnVenta.setEnabled(true);
             btnCerrar.setEnabled(true);
         } else if ("Vendedor".equals(categoria)) {
-            btnInicio.setVisible(false);
             btnUsuario.setVisible(false);
             btnProducto.setVisible(false);
             btnStock.setVisible(false);
