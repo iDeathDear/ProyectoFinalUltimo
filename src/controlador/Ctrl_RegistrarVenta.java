@@ -1,71 +1,94 @@
 package controlador;
 
-import conexion.Conexion;
-import datos.DetalleVenta;
+import dao.VentaDAO;
+import dao.DetalleVentaDAO;
+import dao.impl.VentaDAOImpl;
+import dao.impl.DetalleVentaDAOImpl;
 import datos.Venta;
-import java.sql.*;
-import javax.swing.JOptionPane;
+import datos.DetalleVenta;
+import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import conexion.Conexion;
 
 public class Ctrl_RegistrarVenta {
 
-    // Variable para almacenar el ID de la última venta registrada
-    public static int idVentaRegistrada;
+    private final VentaDAO ventaDAO;
+    private final DetalleVentaDAO detalleVentaDAO;
+    
 
-    // Método para guardar la venta principal
-    public boolean guardar(Venta objeto) {
-        boolean respuesta = false;
-        String sql = "INSERT INTO venta (idVenta, idCliente, total, fecha) VALUES (?, ?, ?, ?)";
-
-        try (Connection cn = Conexion.conectar(); 
-             PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
-            ps.setInt(1, 0); // ID autoincremental
-            ps.setInt(2, objeto.getIdCliente());
-            ps.setDouble(3, objeto.getValorPagar());
-            ps.setString(4, objeto.getFechaVenta());
-
-            if (ps.executeUpdate() > 0) {
-                respuesta = true;
-                try (ResultSet rs = ps.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        idVentaRegistrada = rs.getInt(1);
-                    }
-                }
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar venta: " + e.getMessage());
-        }
-
-        return respuesta;
+    public Ctrl_RegistrarVenta() {
+        this.ventaDAO = new VentaDAOImpl();
+        this.detalleVentaDAO = new DetalleVentaDAOImpl();
     }
 
-    // Método para guardar el detalle de la venta
-    public boolean guardarDetalle(DetalleVenta objeto) {
-        boolean respuesta = false;
-        String sql = "INSERT INTO detalle_venta (idDetalle, idVenta, idProducto, cantidad, precio_unitario, subtotal, descuento, igv, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    /**
+     * Guarda la venta general (solo total y fecha).
+     * Retorna el ID generado si es exitoso, o -1 si falla.
+     */
+    
+    public int guardar(Venta venta) {
+    int idGenerado = -1;
+    String sql = "INSERT INTO venta (fechaVenta, total) VALUES (?, ?)";
 
-        try (Connection cn = Conexion.conectar(); 
-             PreparedStatement ps = cn.prepareStatement(sql)) {
+    try (Connection cn = Conexion.conectar();
+         PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            ps.setInt(1, 0); // ID autoincremental
-            ps.setInt(2, idVentaRegistrada);
-            ps.setInt(3, objeto.getIdproducto());
-            ps.setInt(4, objeto.getCantidad());
-            ps.setDouble(5, objeto.getPreUnitario());
-            ps.setDouble(6, objeto.getSubTotal());
-            ps.setDouble(7, objeto.getDescuento());
-            ps.setDouble(8, objeto.getIgv());
-            ps.setDouble(9, objeto.getTotalpagar());
+        ps.setString(1, venta.getFechaVenta());
+        ps.setDouble(2, venta.getValorPagar());
 
-            if (ps.executeUpdate() > 0) {
-                respuesta = true;
+        int filas = ps.executeUpdate();
+        if (filas > 0) {
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    idGenerado = rs.getInt(1);
+                }
             }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar detalle de venta: " + e.getMessage());
         }
 
-        return respuesta;
+    } catch (SQLException e) {
+        System.out.println("Error al guardar venta: " + e.getMessage());
+    }
+
+    return idGenerado;
+}
+
+   public int guardarYObtenerId(Venta venta) {
+    return this.guardar(venta); // ya lo estás haciendo tú aquí mismo
+}
+
+
+    /**
+     * Guarda los detalles de una venta
+     */
+    public boolean guardarDetalle(DetalleVenta detalle) {
+        try {
+            return detalleVentaDAO.guardarDetalle(detalle);
+        } catch (Exception e) {
+            System.err.println("Error al registrar detalle de venta: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Guarda venta y sus detalles juntos
+     */
+    public boolean guardarVentaCompleta(Venta venta, List<DetalleVenta> detalles) {
+        int idVenta = this.guardar(venta);
+
+        if (idVenta != -1) {
+            for (DetalleVenta detalle : detalles) {
+                detalle.setIdVenta(idVenta);
+                if (!guardarDetalle(detalle)) {
+                    return false; // Si falla un detalle, se detiene todo
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

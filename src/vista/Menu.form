@@ -50,19 +50,11 @@
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="btnCrearusuario">
+            <MenuItem class="javax.swing.JMenuItem" name="btnAdministrar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/nuevousu.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Crear usuario"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearusuarioActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="btnAdministrar">
-              <Properties>
                 <Property name="text" type="java.lang.String" value="Administrar usuario"/>
               </Properties>
               <Events>

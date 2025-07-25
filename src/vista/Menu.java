@@ -24,7 +24,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnUsuario = new javax.swing.JMenu();
-        btnCrearusuario = new javax.swing.JMenuItem();
         btnAdministrar = new javax.swing.JMenuItem();
         btnProducto = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -73,15 +72,7 @@ public class Menu extends javax.swing.JFrame {
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usumenu.png"))); // NOI18N
         btnUsuario.setText("Usuario");
 
-        btnCrearusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevousu.png"))); // NOI18N
-        btnCrearusuario.setText("Crear usuario");
-        btnCrearusuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearusuarioActionPerformed(evt);
-            }
-        });
-        btnUsuario.add(btnCrearusuario);
-
+        btnAdministrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevousu.png"))); // NOI18N
         btnAdministrar.setText("Administrar usuario");
         btnAdministrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,11 +185,6 @@ public class Menu extends javax.swing.JFrame {
         pr.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void btnCrearusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearusuarioActionPerformed
-        Registrar rg = new Registrar(this, true);
-        rg.setVisible(true);
-    }//GEN-LAST:event_btnCrearusuarioActionPerformed
-
     private void btnAdministrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarActionPerformed
         GestionarUsuario usu = new GestionarUsuario(this, true);
         usu.setVisible(true);
@@ -257,7 +243,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu btnCerrar;
     private javax.swing.JMenu btnCliente;
     private javax.swing.JMenu btnConfiguracion;
-    private javax.swing.JMenuItem btnCrearusuario;
     private javax.swing.JMenu btnProducto;
     private javax.swing.JMenu btnStock;
     private javax.swing.JMenu btnUsuario;

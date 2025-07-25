@@ -68,6 +68,7 @@ public class Stock extends javax.swing.JDialog {
         txtAgregarStock = new javax.swing.JTextField();
         btnActualizarStock = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar stock");
@@ -95,30 +96,30 @@ public class Stock extends javax.swing.JDialog {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel1.setText("ID Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 9, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel2.setText("Marca");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 71, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel9.setText("Almacenamiento");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 9, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel3.setText("Color");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 39, -1, 21));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, 21));
 
         txtColor.setEditable(false);
         txtColor.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel1.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        jPanel1.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         txtAlmacenamiento.setEditable(false);
         txtAlmacenamiento.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel1.add(txtAlmacenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 6, -1, -1));
+        jPanel1.add(txtAlmacenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
 
         txtMarca.setEditable(false);
         txtMarca.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -127,7 +128,7 @@ public class Stock extends javax.swing.JDialog {
                 txtMarcaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 71, -1, -1));
+        jPanel1.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
         txtIdProducto.setEditable(false);
         txtIdProducto.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -136,16 +137,16 @@ public class Stock extends javax.swing.JDialog {
                 txtIdProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 6, -1, -1));
+        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel4.setText("Precio");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 74, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
         txtPrecio.setEditable(false);
         txtPrecio.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 71, -1, -1));
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
         txtStockActual.setEditable(false);
         txtStockActual.setPreferredSize(new java.awt.Dimension(140, 25));
@@ -154,25 +155,25 @@ public class Stock extends javax.swing.JDialog {
                 txtStockActualActionPerformed(evt);
             }
         });
-        jPanel1.add(txtStockActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 60, -1));
+        jPanel1.add(txtStockActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 60, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel5.setText("Stock Actual");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel6.setText("Modelo");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 37, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         txtModelo.setEditable(false);
         txtModelo.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 40, -1, -1));
+        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel7.setText("Agregar Stock");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         txtAgregarStock.setPreferredSize(new java.awt.Dimension(140, 25));
         txtAgregarStock.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +181,7 @@ public class Stock extends javax.swing.JDialog {
                 txtAgregarStockActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAgregarStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 60, -1));
+        jPanel1.add(txtAgregarStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 60, -1));
 
         btnActualizarStock.setText("Actualizar Stock");
         btnActualizarStock.setPreferredSize(new java.awt.Dimension(90, 25));
@@ -189,7 +190,7 @@ public class Stock extends javax.swing.JDialog {
                 btnActualizarStockActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizarStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 120, 30));
+        jPanel1.add(btnActualizarStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 120, 30));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setPreferredSize(new java.awt.Dimension(90, 25));
@@ -198,7 +199,11 @@ public class Stock extends javax.swing.JDialog {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 120, 30));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 120, 30));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("STOCK");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
 
@@ -270,12 +275,23 @@ public class Stock extends javax.swing.JDialog {
                 return;
             }
 
-            boolean actualizado = ctrlStock.agregarStock(idProductoSeleccionado, cantidad);
-            if (actualizado) {
-                JOptionPane.showMessageDialog(this, "Stock actualizado correctamente.");
-                cargarTablaProductos();
-                limpiarCampos();
-            } else {
+            // Confirmar antes de ejecutar
+            int confirmacion = JOptionPane.showConfirmDialog(this,
+                "¿Deseas agregar " + cantidad + " unidades al stock?",
+                "Confirmar actualización",
+                JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                boolean actualizado = ctrlStock.agregarStock(idProductoSeleccionado, cantidad);
+                if (actualizado) {
+                    JOptionPane.showMessageDialog(this, "Stock actualizado correctamente.");
+                    cargarTablaProductos();
+                    limpiarCampos();
+                } else {
+                JOptionPane.showMessageDialog(this, "Error al actualizar el stock.");
+            }
+        }
+                else {
                 JOptionPane.showMessageDialog(this, "Error al actualizar el stock.");
             }
             
@@ -318,6 +334,7 @@ public class Stock extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

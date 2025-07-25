@@ -8,7 +8,8 @@ public interface ProductoDAO {
     boolean crear(Producto producto);
     boolean actualizar(Producto producto, int idProducto);
     boolean eliminar(int idProducto);
-    List<Producto> buscar(String filtro); // filtrado general
-    List<Producto> obtenerTodos();
+    List<Producto> buscar(String filtro);
+    List<Producto> obtenerTodos(); // <- Este método es necesario
+    Producto obtenerProductoPorDetalle(String modelo, String marca, String almacenamiento, String color);
     List<ProductoConStock> obtenerProductosConStock();
 }

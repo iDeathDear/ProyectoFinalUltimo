@@ -479,29 +479,6 @@ public class GestionarUsuario extends javax.swing.JDialog {
     }
 }
 
-
-
-    private void EnviarDatosUsuarioSelec(int idUsuario) {
-        try {
-            Connection cn = Conexion.conectar();
-            String sql = "SELECT idUsuario,apellidos,nombres,celular,categoria,usuario, clave FROM usuario WHERE idUsuario = '" + idUsuario + "'";
-            PreparedStatement ps = cn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-
-                txtApellido.setText(rs.getString("apellidos"));
-                txtNombre.setText(rs.getString("nombres"));
-                txtCelular.setText(rs.getString("celular"));
-                cboxCategoria.setSelectedItem(rs.getString("categoria"));
-                txtUsuario.setText(rs.getString("usuario"));
-                txtClave.setText(rs.getString("clave"));
-            }
-            cn.close();
-        } catch (SQLException e) {
-            System.out.println("Error al selecionar usuario " + e);
-        }
-    }
     
    private void buscarYMostrarUsuarios() {
     Usuario filtro = new Usuario();

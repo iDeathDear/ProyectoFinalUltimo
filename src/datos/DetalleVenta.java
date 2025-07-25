@@ -9,7 +9,7 @@ public class DetalleVenta {
     private String marca;
     private String almacenamiento;
     private String color;
-
+    private double precioUnitario;
     private int cantidad;
     private double preUnitario;
     private double subTotal;
@@ -53,7 +53,16 @@ public class DetalleVenta {
 
     public String getAlmacenamiento() { return almacenamiento; }
     public void setAlmacenamiento(String almacenamiento) { this.almacenamiento = almacenamiento; }
+    
+    public void setPrecioUnitario(double precioUnitario) {
+    this.precioUnitario = precioUnitario;
+}
 
+public double getPrecioUnitario() {
+    return precioUnitario;
+}
+    
+    
     public String getColor() { return color; }
     public void setColor(String color) { this.color = color; }
 
