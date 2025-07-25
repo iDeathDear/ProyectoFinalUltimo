@@ -120,11 +120,71 @@ Incluye claves foráneas entre venta y detalle_venta, y relación entre producto
 🔜 Módulo de clientes
 🔜 Reportes y dashboard
 
-⸻![Uploading image.png…]()
+_______
+   DIAGRAMAS
+
+   Diagramas BPMN
+   
+   <img width="1245" height="572" alt="image" src="https://github.com/user-attachments/assets/38911a4c-6836-4077-bbc2-fd1e5d19fb3a" />
+
+   
+   Diagrama Casos de Uso 
+   
+   <img width="600" height="688" alt="image" src="https://github.com/user-attachments/assets/6005ef3c-429b-45bf-90a4-049c76f2fa08" />
+
+   
+   Diagrama ER
+   
+   <img width="1190" height="782" alt="DER" src="https://github.com/user-attachments/assets/e0e2508a-457a-43b2-959c-454bce63d82a" />
+
+
+   Diagrama Logico
+   
+   <img width="820" height="742" alt="DLOGICO" src="https://github.com/user-attachments/assets/db4d4ba5-b240-4296-acad-09ba91ad63f3" />
+
+   
+   Diagrama de Gantt
+
+   <img width="965" height="403" alt="image" src="https://github.com/user-attachments/assets/75d39370-e96b-4767-973e-99cb8f1e27a5" />
+
+   <img width="1487" height="236" alt="image" src="https://github.com/user-attachments/assets/efa291c2-4af1-422f-9da5-aefc6e08bc1e" />
+
+   <img width="937" height="140" alt="image" src="https://github.com/user-attachments/assets/df421879-bf4c-48c2-a7a3-5fd652ef3a66" />
+
+   <img width="1328" height="223" alt="image" src="https://github.com/user-attachments/assets/79df7ba5-7f0d-49b6-afbc-2746ff60b61a" />
+
+   
+   Capturas del Aplicativo
+   LOGIN
+   
+   <img width="1332" height="852" alt="image" src="https://github.com/user-attachments/assets/cb2dcd7e-18c4-419a-8803-a3a63883bc6b" />
+   
+   MENU PRINCIPAL
+   
+   <img width="1156" height="710" alt="image" src="https://github.com/user-attachments/assets/cfb013d0-bc25-48bf-b129-639a9d8795a7" />
+
+   
+   GESTIONAR USUARIOS
+   
+   <img width="1155" height="808" alt="image" src="https://github.com/user-attachments/assets/04b5318d-165b-452b-936c-e45f9f9a6cf4" />
+
+
+   VENTAS
+   
+   <img width="992" height="856" alt="image" src="https://github.com/user-attachments/assets/6f18e18b-5438-4926-8c84-ca38f6a016d1" />
+
+
+   STOCK
+
+   <img width="1118" height="806" alt="image" src="https://github.com/user-attachments/assets/b02252aa-67fa-4174-8d02-2c4de9566d3b" />
+
 
 
 ✍️ Autores
+
 	•	Diego Quispe Ramírez
+        •       Jorge Quispe Villarroel
+	•	Jhonatan Ochante Ricapa
 	•	Proyecto académico para la Universidad
 
 ⸻
